@@ -15,8 +15,46 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "ecommerce-web-app",
+    slug: "ai-nexus",
     code: "SVC-01",
+    name: "AI Nexus",
+    oneLiner:
+      "A modular AI integration platform with multi-LLM support, RAG, agent tooling, and workflow orchestration built with Spring AI.",
+    stack: [
+      "Java",
+      "Spring Boot",
+      "Spring AI",
+      "PostgreSQL",
+      "pgvector",
+    ],
+    problem:
+      "Building AI applications often requires integrating model providers, prompt management, vector search, retrieval, agents, and workflow logic as separate components, making the system difficult to extend and maintain.",
+    solution:
+      "A modular Spring Boot platform that brings LLM integration, prompt management, RAG, agent tooling, and workflow orchestration into a single extensible backend.",
+    architecture: [
+      "Multi-LLM Gateway using the Strategy pattern for provider-agnostic model integration.",
+      "JWT/OAuth2 authentication securing platform APIs.",
+      "RAG pipeline using PostgreSQL + pgvector with pluggable embedding and retrieval components.",
+      "Prompt management and evaluation for managing and testing AI prompts.",
+      "Agent Builder and Tool Calling for creating tool-enabled AI agents.",
+      "Workflow Builder for chaining AI capabilities into multi-step workflows.",
+      "Observability Dashboard for monitoring platform activity and AI workflows.",
+    ],
+    challenges: [
+      "Designing reusable abstractions so model providers, embeddings, and retrieval strategies could be changed independently.",
+      "Handling provider-specific embedding dimensions and runtime behavior while maintaining a consistent LLM interface.",
+      "Integrating multiple AI capabilities without tightly coupling the underlying modules.",
+    ],
+    results: [
+      "Built and integration-tested an end-to-end AI backend covering LLM routing, RAG, prompt management, agents, tool calling, workflows, and observability.",
+      "Established a reusable foundation for adding new AI providers, retrieval strategies, and tools without restructuring the core application.",
+    ],
+    githubUrl: "https://github.com/ravix2001/nexus_ai",
+    liveUrl: "",
+  },
+  {
+    slug: "ecommerce-web-app",
+    code: "SVC-02",
     name: "E-commerce Web App",
     oneLiner:
       "A JWT-secured commerce backend covering product, cart, and order management with a Redis caching layer.",
@@ -37,14 +75,14 @@ export const projects: Project[] = [
     ],
     results: [
       "Cut repeated catalog query latency by serving hot paths from Redis instead of Postgres.",
-      "End-to-end auth flow (register → login → JWT-protected cart/order actions) fully working.",
+      "End-to-end auth flow (register - login - JWT-protected cart/order actions) fully working.",
     ],
     githubUrl: "https://github.com/ravix2001/orbit_backend",
     liveUrl: "https://orbit.ravi-pandit.com.np",
   },
   {
     slug: "journal-web-app",
-    code: "SVC-02",
+    code: "SVC-03",
     name: "Journal Web App",
     oneLiner:
       "A role-based journaling service with scheduled tasks, MongoDB storage, and a documented, tested API.",
@@ -73,7 +111,7 @@ export const projects: Project[] = [
   },
   {
     slug: "trendmorph-ai",
-    code: "SVC-03",
+    code: "SVC-04",
     name: "TrendMorph AI",
     oneLiner:
       "An image-to-social-caption pipeline: BLIP captioning, a fine-tuned T5 rewrite step, and speech I/O, served on Hugging Face Spaces.",
@@ -89,7 +127,7 @@ export const projects: Project[] = [
       "Flask API serving the pipeline, deployed on Hugging Face Spaces with GPU inference.",
     ],
     challenges: [
-      "Chaining two separate model outputs (BLIP → T5) without losing image-specific detail in the rewrite.",
+      "Chaining two separate model outputs (BLIP - T5) without losing image-specific detail in the rewrite.",
       "Fitting inference into the memory and runtime limits of a Hugging Face Spaces GPU instance.",
     ],
     results: [
@@ -101,7 +139,7 @@ export const projects: Project[] = [
   },
   {
     slug: "sentiment-analysis-extension",
-    code: "SVC-04",
+    code: "SVC-05",
     name: "Sentiment Analysis Browser Extension",
     oneLiner:
       "A browser extension that scrapes Amazon and Daraz reviews and classifies sentiment with a TF-IDF + Logistic Regression model.",
